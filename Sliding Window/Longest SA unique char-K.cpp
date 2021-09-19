@@ -8,21 +8,20 @@ int fun(string s,int n,int k)
     while(j<n)
     {
         m[s[j]]++;
-        int c=m.size();
-        if(c<k)
+        if(m.size()<k)
             ++j;
-        else if(c==k)
+        else if(m.size()==k)
         {
             r=max(r,j-i+1);
             ++j;
         }
-        else if(c>k)
+        else if(m.size()>k)
         {
-            while(c>k)
+            while(m.size()>k)
             {
                 m[s[i]]--;
                 if(m[s[i]]==0)
-                m.erase(s[i]),c--;
+                m.erase(s[i]);
                 ++i;
             }
 

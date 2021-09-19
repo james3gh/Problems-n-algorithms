@@ -40,10 +40,12 @@ int main()
 
     if(n>=k)
     {
-    	for(i=0;i<n;++i) cin>>a[i];
+    	for(i=0;i<n;++i)
+        cin>>a[i];
+
     	cout<<fun2(a,n,k);
     }
-    else 
+    else
     	cout<<"invalid";
 
     return 0;

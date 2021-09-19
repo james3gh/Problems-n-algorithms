@@ -1,3 +1,5 @@
+// For positive numbers only
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -7,18 +9,16 @@ int fun(int a[],int n,int s)
     while(j<n)
     {
         k+=a[j];
-        if(k<s)
-        ++j;
-        else if(k==s){
+        if(k==s)
         r=max(r,j-i+1);
-        ++j;
-        }
-        if(k>s)
+        else if(k>s)
         {
-            while(k>s)
-              k=k-a[i],  ++i;
-              ++j;
+            while(k>s){
+              k-=a[i];
+              ++i;
+              }
         }
+       ++j;
     }
     return r;
 }
