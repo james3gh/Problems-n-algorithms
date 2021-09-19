@@ -24,26 +24,28 @@ void solve_stack(int a[],int n)
             }
         s1.push(make_pair(a[i],i));
     }
-    s1.empty();
-
+    for(int i:v1)
+    cout<<i;
     // Nearest smallest to right
      for(i=n-1;i>=0;--i)
     {
-        if(s1.size()==0)
-            v2.push_back(7);
-        else if(a[i]>s1.top().first)
-            v2.push_back(s1.top().second);
+        if(s2.size()==0)
+            v2.push_back(n);
+        else if(a[i]>s2.top().first)
+            v2.push_back(s2.top().second);
         else{
-            while(s1.size()!=0 && s1.top().first>=a[i])
-                 s1.pop();
-                 if(s1.size()==0)
-                    v2.push_back(7);
+            while(s2.size()!=0 && s2.top().first>=a[i])
+                 s2.pop();
+                 if(s2.size()==0)
+                    v2.push_back(n);
                 else
-                    v2.push_back(s1.top().second);
+                    v2.push_back(s2.top().second);
             }
-        s1.push(make_pair(a[i],i));
+        s2.push(make_pair(a[i],i));
     }
     reverse(v2.begin(),v2.end());
+    for(int i:v2)
+    cout<<i;
     int t[n];
     for(i=0;i<n;++i){
         t[i]=a[i]*(v2[i]-v1[i]-1);
